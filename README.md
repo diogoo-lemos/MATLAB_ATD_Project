@@ -1,160 +1,166 @@
-# Projeto de Análise e Transformação de Dados - Identificação de Dígitos por Áudio
-## Descrição do Projeto
-Este projeto visa identificar dígitos (0-9) em inglês através da análise de sinais de áudio, utilizando técnicas de processamento digital de sinal e aprendizado de máquina. O sistema extrai características nos domínios temporal, frequencial e tempo-frequência para classificar dígitos falados.
+# Audio Digit Recognition Project
+## Project Description
+This project aims to identify English digits (0-9) through audio signal analysis using digital signal processing and machine learning techniques. The system extracts temporal, frequency, and time-frequency features to classify spoken digits.
 
 ### Dataset
-AudioMNIST: 60 participantes, 50 repetições por dígito (500 arquivos/participante)
+AudioMNIST: 60 participants, 50 repetitions per digit (500 files/participant)
 
-##Formato: .wav mono, taxa de amostragem de 48 kHz
+Format: .wav mono, 48 kHz sampling rate
 
-Origem: Kaggle Dataset
+Source: Kaggle Dataset
 
-## Estrutura do Código
-O projeto está organizado em 4 metas principais:
+## Code Structure
+The project is organized into 4 main milestones:
 
-### Meta 1: Pré-processamento e Características Temporais
-Arquivo: ATF2025.m
 
-Importação e organização dos áudios em estrutura de dados
+### Milestone 1: Preprocessing and Temporal Features
+File: ATF2025.m
 
-Pré-processamento:
+- Audio import and data organization
 
-Remoção de silêncio inicial
+- Preprocessing:
 
-Normalização de amplitude
+  - Initial silence removal
 
-Uniformização da duração
+  - Amplitude normalization
 
-Extração de características temporais:
+  - Duration standardization
 
-Energia total
+  - Temporal feature extraction:
 
-Amplitude máxima/média
+  - Total energy
 
-Desvio padrão
+  - Max/mean amplitude
 
-Duração do sinal
+  - Standard deviation
 
-Gráficos Gerados:
+  - Signal duration
 
-Sinais no Domínio do Tempo: Visualização dos sinais de áudio após pré-processamento
+#### Generated Plots:
 
-Boxplot de Energia Total: Distribuição da energia por dígito
+- Time Domain Signals: Visualization of preprocessed audio signals
 
-Boxplot de Amplitude Máxima: Variação da amplitude máxima por dígito
+- Total Energy Boxplot: Energy distribution per digit
 
-Desvio Padrão: Variação entre dígitos
+- Max Amplitude Boxplot: Amplitude variation per digit
 
-Duração do Sinal: Comparação da duração média por dígito
+- Standard Deviation Bar Chart: Dispersion comparison across digits
 
-### Meta 2: Análise em Frequência
-Arquivo: ATD2025_2.m
+- Signal Duration Boxplot: Duration distribution per digit
 
-Cálculo da Transformada de Fourier
 
-Espectros medianos e quartis (Q25/Q75)
+### Milestone 2: Frequency Domain Analysis
+File: ATD2025_2.m
 
-Extração de características espectrais:
+- Fourier Transform calculation
 
-Amplitude e frequência do pico espectral
+- Median spectra with quartiles (Q25/Q75)
 
-Centróide espectral
+- Spectral feature extraction:
 
-Spectral Edge Frequency (SEF75)
+- Spectral peak amplitude/frequency
 
-Assimetria espectral (Skewness)
+- Spectral centroid
 
-Gráficos Gerados:
+- Spectral Edge Frequency (SEF75)
 
-Espectros Medianos: Comparação entre dígitos com quartis
+- Spectral skewness
 
-Boxplots Características Espectrais: Distribuição das 5 características por dígito
+#### Generated Plots:
 
-Scatter 3D: Dispersão entre centróide, SEF75 e skewness
+- Median Spectra: Digit comparison with quartiles
 
-### Meta 3: Classificação
-Arquivo: ATD2025_3.m
+- Spectral Feature Boxplots: Distribution of 5 spectral features
 
-Classificador "Minimum Distance" usando:
+- 3D Scatter Plot: Spectral centroid vs SEF75 vs skewness
 
-Características temporais (energia, amplitude média, desvio padrão)
 
-Características espectrais (frequência do pico, centróide, SEF75)
+### Milestone 3: Classification
+File: ATD2025_3.m
 
-Cálculo de acurácia
+Minimum Distance classifier using:
 
-Saída:
+- Temporal features (energy, mean amplitude, std deviation)
 
-Percentagem de acertos na classificação
+- Spectral features (peak frequency, centroid, SEF75)
 
-### Meta 4: Análise Tempo-Frequência
-Arquivo: ATD2025_4.m
+- Accuracy calculation
 
-STFT (Short-Time Fourier Transform):
+#### Output:
 
-Parametrização com diferentes janelas (Hamming 256/512/1024)
+- Classification accuracy percentage
 
-Visualização de espectrogramas
 
-Extração de características tempo-frequência:
+### Milestone 4: Time-Frequency Analysis
+File: ATD2025_4.m
 
-Frequência média
+- STFT (Short-Time Fourier Transform):
 
-Frequência de máxima energia
+  - Parameterization with Hamming windows (256/512/1024 samples)
 
-Largura de banda
+  - Spectrogram visualization
 
-Fluxo espectral
+  - Time-frequency feature extraction:
 
-Entropia de energia
+  - Mean frequency
 
-DWT (Discrete Wavelet Transform):
+  - Max energy frequency
 
-Decomposição com wavelet 'db4' (4 níveis)
+  - Bandwidth
 
-Energia nos coeficientes de detalhe/aproximação
+  - Spectral flux
 
-Gráficos Gerados:
+  - Energy entropy
 
-Espectrogramas: Para cada dígito (0-9)
+- DWT (Discrete Wavelet Transform):
 
-Boxplots Características TF: Distribuição das 5 características
+  - 'db4' wavelet decomposition (4 levels)
 
-Scatter 3D: Melhores características para discriminação
+  - Energy distribution in detail/approximation coefficients
 
-Energia DWT: Distribuição energética por nível de decomposição
+#### Generated Plots:
 
-## Como Executar
-Clone o repositório:
+- Spectrograms: Time-frequency representations for each digit
+
+- Time-Frequency Feature Boxplots: Distribution of 5 features
+
+- 3D Feature Scatter: Optimal features for digit discrimination
+
+- DWT Energy Distribution: Energy by decomposition level
+
+### Execution Instructions
+1. Clone repository:
 
 git clone https://github.com/seu-usuario/audio-digit-recognition.git
 
-Baixe o dataset AudioMNIST
+2. Download AudioMNIST dataset
 
-Extraia na pasta data/
+3. Extract into data/ directory
 
-Execute os scripts em ordem:
+4. Run scripts sequentially:
 
-text
-ATF2025.m    -> Meta 1
-ATD2025_2.m  -> Meta 2
-ATD2025_3.m  -> Meta 3
-ATD2025_4.m  -> Meta 4
+  -ATF2025.m    → Milestone 1
+  -ATD2025_2.m  → Milestone 2
+  -ATD2025_3.m  → Milestone 3
+  -ATD2025_4.m  → Milestone 4
 
-## Dependências
-MATLAB (versão R2020a ou superior)
+### Dependencies
+MATLAB (R2020a or newer)
 
-## Toolboxes:
+Required Toolboxes:
 
-Signal Processing Toolbox
+  - Signal Processing Toolbox
 
-Wavelet Toolbox
+  - Wavelet Toolbox
 
-## Resultados Esperados
-Pré-processamento de sinais de áudio
+### Expected Results
+- Preprocessed audio signals
 
-Visualizações de características temporais/espaciais
+- Feature visualizations (temporal/spectral/time-frequency)
 
-Classificação de dígitos com acurácia reportada
+- Digit classification accuracy report
 
-Análise comparativa STFT vs DWT
+- Comparative analysis of STFT vs DWT
+
+## Contribution Guidelines
+Contributions are welcome! Please open issues for suggestions or submit pull requests for improvements.
