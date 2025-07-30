@@ -1,18 +1,18 @@
-#Projeto de Análise e Transformação de Dados - Identificação de Dígitos por Áudio
-##Descrição do Projeto
+# Projeto de Análise e Transformação de Dados - Identificação de Dígitos por Áudio
+## Descrição do Projeto
 Este projeto visa identificar dígitos (0-9) em inglês através da análise de sinais de áudio, utilizando técnicas de processamento digital de sinal e aprendizado de máquina. O sistema extrai características nos domínios temporal, frequencial e tempo-frequência para classificar dígitos falados.
 
-###Dataset
+### Dataset
 AudioMNIST: 60 participantes, 50 repetições por dígito (500 arquivos/participante)
 
 ##Formato: .wav mono, taxa de amostragem de 48 kHz
 
 Origem: Kaggle Dataset
 
-##Estrutura do Código
+## Estrutura do Código
 O projeto está organizado em 4 metas principais:
 
-###Meta 1: Pré-processamento e Características Temporais
+### Meta 1: Pré-processamento e Características Temporais
 Arquivo: ATF2025.m
 
 Importação e organização dos áudios em estrutura de dados
@@ -47,7 +47,7 @@ Desvio Padrão: Variação entre dígitos
 
 Duração do Sinal: Comparação da duração média por dígito
 
-###Meta 2: Análise em Frequência
+### Meta 2: Análise em Frequência
 Arquivo: ATD2025_2.m
 
 Cálculo da Transformada de Fourier
@@ -72,7 +72,7 @@ Boxplots Características Espectrais: Distribuição das 5 características por 
 
 Scatter 3D: Dispersão entre centróide, SEF75 e skewness
 
-###Meta 3: Classificação
+### Meta 3: Classificação
 Arquivo: ATD2025_3.m
 
 Classificador "Minimum Distance" usando:
@@ -87,7 +87,7 @@ Saída:
 
 Percentagem de acertos na classificação
 
-###Meta 4: Análise Tempo-Frequência
+### Meta 4: Análise Tempo-Frequência
 Arquivo: ATD2025_4.m
 
 STFT (Short-Time Fourier Transform):
@@ -124,7 +124,7 @@ Scatter 3D: Melhores características para discriminação
 
 Energia DWT: Distribuição energética por nível de decomposição
 
-##Como Executar
+## Como Executar
 Clone o repositório:
 
 git clone https://github.com/seu-usuario/audio-digit-recognition.git
@@ -141,16 +141,16 @@ ATD2025_2.m  -> Meta 2
 ATD2025_3.m  -> Meta 3
 ATD2025_4.m  -> Meta 4
 
-##Dependências
+## Dependências
 MATLAB (versão R2020a ou superior)
 
-##Toolboxes:
+## Toolboxes:
 
 Signal Processing Toolbox
 
 Wavelet Toolbox
 
-##Resultados Esperados
+## Resultados Esperados
 Pré-processamento de sinais de áudio
 
 Visualizações de características temporais/espaciais
