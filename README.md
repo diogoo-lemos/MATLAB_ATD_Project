@@ -131,7 +131,7 @@ File: ATD2025_4.m
 ### Execution Instructions
 1. Clone repository:
 
-git clone https://github.com/seu-usuario/audio-digit-recognition.git
+git clone https://github.com/diogoo-lemos/MATLAB_ATD_Project/
 
 2. Download AudioMNIST dataset
 
